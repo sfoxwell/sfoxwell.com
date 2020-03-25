@@ -77,18 +77,6 @@
             padding: 1.75em 1.5em 7em;
             max-width: var(--max-width);
             margin: 0 auto;
-            background-image: linear-gradient(to bottom, transparent, transparent 60%, var(--color-light) 60%, var(--color-light) 100%);
-        }
-        .canvas::before {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 100vw;
-            margin-left: -50vw;
-            background: inherit;
         }
         
         .canvas::after {
@@ -100,7 +88,7 @@
                 width: 100vw;
                 margin-left: -50vw;
                 height: 4em;
-                background-image: linear-gradient(to top, var(--color-dark), var(--color-dark) 37%, transparent 37%, transparent 41.6%, var(--color-dark) 41.6%, var(--color-dark) 59.6%, transparent 59.6%, transparent 68.6%, var(--color-dark) 68.6%, var(--color-dark) 77.6%, transparent 77.6%, transparent 95.6%, var(--color-dark) 95.6%, var(--color-dark) 100%);
+                background-image: linear-gradient(to top, var(--color-light), var(--color-light) 37%, transparent 37%, transparent 41.6%, var(--color-light) 41.6%, var(--color-light) 59.6%, transparent 59.6%, transparent 68.6%, var(--color-light) 68.6%, var(--color-light) 77.6%, transparent 77.6%, transparent 95.6%, var(--color-light) 95.6%, var(--color-light) 100%);
             }
         
         .canvas__masthead {
@@ -151,30 +139,15 @@
         .canvas__feed {
             position: relative;
             z-index: 1;
-            background-color: var(--color-light);
-            color: var(--color-dark);
-            padding: 2.5em 0;
-            margin-top: 2em;
-        }
-        .canvas__feed::after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            width: 100vw;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -50vw;
-            background: inherit;
         }
         .canvas__feed::before {
             content: '';
             position: relative;
             display: block;
-            margin: 0 0 2em;
+            margin: 2em 0;
             height: 4.76em;
-            border: 1px solid var(--color-dark);
-            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px));
+            border: 1px solid var(--color-light);
+            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-light) 1.5em, var(--color-light) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-light) 1.5em, var(--color-light) calc(1.5em + 1px));
         }
         .canvas__feed h3 {
             margin-top: 0;
@@ -228,7 +201,6 @@
             font-weight: 700;
             line-height: 1;
             margin-top: 4em;
-            color: var(--color-dark);
         }
         .canvas__contact a {
             text-decoration: none;
@@ -271,7 +243,7 @@
             .canvas__feed::before {
                 width: 40%;
                 position: absolute;
-                top: 4em;
+                top: 4.625em;
                 right: 0;
                 bottom: 4em;
                 height: auto;
