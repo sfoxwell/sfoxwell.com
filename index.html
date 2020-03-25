@@ -1,0 +1,367 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephan Foxwell</title>
+    <meta name="description" content="Stephan Foxwell is a web designer and (sometimes) developer."
+    <!-- https://gist.github.com/stephansmith/0a12493293f670f31b12bf8fa6defd0a -->
+    <script>document.getElementsByTagName( 'html' )[0].className = document.getElementsByTagName( 'html' )[0].className.replace( /no-js/, 'js' );</script>
+    <link rel="stylesheet" href="https://use.typekit.net/sdp3aaq.css">
+    <style>
+        :root {
+            --color-dark: #0E1215;
+            --color-light: #F8F3EB;
+            
+            --color-blue: #243c5f;
+            --color-purple: #49325b;
+            --color-red: #5a2e2a;
+            --color-orange: #5c4527;
+            --color-yellow: #5e552b;
+            
+            --max-width: 100em;
+            
+            --font-heading: rhode-wide, sans-serif;
+            --font-body: poppins, sans-serif;
+            --font-mono: t26-carbon, monospace;
+
+            --font-large: 2em;
+            --font-normalish: 1.375em;
+            --font-normal: 1em;
+            --font-small: 0.875em;
+        }
+        @media ( min-width: 48em ) {
+            :root {
+                --font-large: 3.5em;
+                --font-normalish: 1.625em;
+                --font-normal: 1.25em;
+                --font-small: 1em;
+            }
+        }
+        ::selection {
+            background: #000;
+        }
+        html {
+            box-sizing: border-box;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: var(--font-body);
+            font-size: 100%;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-feature-settings: "kern", "liga", "clig", "ss05", "ss07";
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            color: inherit;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            margin: 1.5em 0;
+        }
+        
+        .canvas {
+            position: relative;
+            z-index: 1;
+            padding: 1.75em 1.5em 7em;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background-image: linear-gradient(to bottom, transparent, transparent 60%, var(--color-light) 60%, var(--color-light) 100%);
+        }
+        .canvas::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 100vw;
+            margin-left: -50vw;
+            background: inherit;
+        }
+        
+        .canvas::after {
+                content: '';
+                position: absolute;
+                z-index: 10;
+                bottom: 0;
+                left: 50%;
+                width: 100vw;
+                margin-left: -50vw;
+                height: 4em;
+                background-image: linear-gradient(to top, var(--color-dark), var(--color-dark) 37%, transparent 37%, transparent 41.6%, var(--color-dark) 41.6%, var(--color-dark) 59.6%, transparent 59.6%, transparent 68.6%, var(--color-dark) 68.6%, var(--color-dark) 77.6%, transparent 77.6%, transparent 95.6%, var(--color-dark) 95.6%, var(--color-dark) 100%);
+            }
+        
+        .canvas__masthead {
+            position: fixed;
+            z-index: 10;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 3em;
+            max-width: var(--max-width);
+            
+        }
+        .canvas__logo {
+            display: block;
+            width: 3.5em;
+        }
+        
+        .canvas__intro {
+            margin-top: 10em;
+        }
+        
+        h1,
+        h3 {
+            font-family: var(--font-mono);
+            font-weight: normal;
+            font-size: var(--font-normal);
+            line-height: 1;
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0;
+        }
+        .canvas__title {
+            color: var(--color-dark);
+            margin: 0;
+        }
+        .canvas__intro h2 {
+            font-size: var(--font-large);
+        }
+        .canvas__intro p {
+            font-size: var(--font-normal);
+            max-width: 36em;
+        }
+        
+        .canvas__feed {
+            position: relative;
+            z-index: 1;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            padding: 2.5em 0;
+            margin-top: 2em;
+        }
+        .canvas__feed::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 100vw;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -50vw;
+            background: inherit;
+        }
+        .canvas__feed::before {
+            content: '';
+            position: relative;
+            display: block;
+            margin: 0 0 2em;
+            height: 4.76em;
+            border: 1px solid var(--color-dark);
+            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px));
+        }
+        .canvas__feed h3 {
+            margin-top: 0;
+        }
+        .canvas__feed h3::before {
+            content: '> ';
+            position: absolute;
+            transform: translate3d(-160%,-0.1em,0);
+        }
+        
+        .canvas__feed__item a {
+            text-decoration: none;
+        }
+        .canvas__feed__item h2 {
+            font-size: var(--font-normalish);
+        }
+        .canvas__feed__item ul {
+            display: flex;
+            list-style: none;
+            margin: 1em 0;
+            padding: 0;
+        }
+        .canvas__feed__item li {
+            font-family: var(--font-mono);
+            font-size: var(--font-small);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .canvas__feed__item li:not(:last-of-type)::after {
+            content: '+';
+            margin: 0 0.5em;
+        }
+        .canvas__feed__item li span {
+            display: inline-block;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            padding: 0 0.125em 0.1em;
+        }
+        .canvas__feed__item > a {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: var(--font-normal);
+        }
+        .canvas__feed__item > a::after {
+            content: '\02192';
+            margin-left: 0.5em;
+        }
+        
+        .canvas__contact {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 4em;
+            color: var(--color-dark);
+        }
+        .canvas__contact a {
+            text-decoration: none;
+            font-size: var(--font-normal);
+        }
+        
+        @media ( max-width: 48em ) {
+            .canvas__contact
+        }
+        
+        
+        @media ( min-width: 48em ) {
+            body {
+                min-height: 100vh;
+            }
+        }
+        
+        @media ( min-width: 48em ) {
+            .canvas {
+                padding-top: 3.5em;
+                min-height: 100vh;
+            }
+            .canvas__logo {
+                width: 5em;
+            }
+            .canvas__intro,
+            .canvas__feed,
+            .canvas__contact {
+                padding-left: 5em;
+            }
+            .canvas__intro {
+                margin-top: 12em;
+            }
+            .canvas__feed {
+                padding-right: calc(40% + 4em);
+                margin-top: 4em;
+                padding-top: 4em;
+                padding-bottom: 4em;
+            }
+            .canvas__feed::before {
+                width: 40%;
+                position: absolute;
+                top: 4em;
+                right: 0;
+                bottom: 4em;
+                height: auto;
+                margin: 0;
+            }
+        }
+        
+        /*
+        
+        .canvas::after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 2em;
+            right: 2em;
+            bottom: 2em;
+            width: 7.8em;
+            border: 1px solid var(--color-dark);
+            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px));
+        }
+        */
+    </style>
+</head>
+<body>
+    <main class="canvas">
+        <header class="canvas__masthead">
+            <span class="canvas__logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 313.82 250"><path d="M176.94,79.43A17.16,17.16,0,0,1,193.12,90.9h52.17A125.06,125.06,0,0,0,125,0h0A125.06,125.06,0,0,0,4.71,90.9H160.77A17.14,17.14,0,0,1,176.94,79.43Z" fill="#fdba12"/><path d="M125,250a124.54,124.54,0,0,0,52.13-11.36H72.87A124.54,124.54,0,0,0,125,250Z" fill="#fdba12"/><path d="M193.13,102.26a17.14,17.14,0,0,1-32.37,0H2.07a126,126,0,0,0,0,45.44H247.94a126,126,0,0,0,0-45.44Z" fill="#fdba12"/><path d="M20.24,193.2H229.76a124.45,124.45,0,0,0,11.71-22.72H8.53A124.45,124.45,0,0,0,20.24,193.2Z" fill="#fdba12"/><path d="M296.65,79.43a17.16,17.16,0,1,0,17.17,17.16A17.16,17.16,0,0,0,296.65,79.43Z" fill="#fdba12"/></svg>
+            </span>
+            <h1>Stephan Foxwell</h1>
+        </header>
+        <div class="canvas__intro">
+            <h2>Engagingly simple sites.</h2>
+            <p>Howdy. I&rsquo;m a developer and designer. I build sites that are easy to use for both their visitors and their admin, mostly working with WordPress and (more recently) Gatsby.</p>
+        </div>
+        <div class="canvas__feed">
+            <h3>Most Recent Work</h3>
+            <article class="canvas__feed__item">
+                <h2><a href="https://www.theoutlawoceanmusic.com" title="The Outlaw Ocean Music Project" target="_blank" rel="nofollow noreferrer">The Outlaw Ocean Music Project</a></h2>
+                <ul>
+                    <li><span>Gatsby</span></li>
+                    <li><span>Headless WP</span></li>
+                    <li><span>Netlify</span></li>
+                </ul>
+                <p>In collaboration with Ian Urbina, writer for the New York Times and The Atlantic, I developed a site to showcase music inspired by his NYT bestseller, <a href="https://www.theoutlawocean.com" title="The Outlaw Ocean" target="_blank" rel="nofollow noreferrer">The Outlaw Ocean</a>. A headless WordPress backend and a Gatsby front-end delivers both a familiar CMS experience for Ian's team and a modern, blazing fast front-end for visitors.</p>
+                <a href="https://www.theoutlawoceanmusic.com" title="The Outlaw Ocean Music Project" target="_blank" rel="nofollow noreferrer">Visit the site</a>
+            </article>
+        </div>
+        <div class="canvas__contact">
+            <a href="mailto:post@sfoxwell.com">Email</a>
+            *
+            <a href="">GitHub</a>
+        </div>
+    </main>
+    <!--
+    <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-104371006-1','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Studio Cedar",
+            "alternateName": "Cedar",
+            "url": "https://www.studiocedar.com",
+            "logo": "",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "telephone": "3169936093",
+                "contactType": "customer service",
+                "areaServed": "US",
+                "availableLanguage": "en"
+            },{
+                "@type": "ContactPoint",
+                "telephone": "3169936093",
+                "contactType": "technical support",
+                "areaServed": "US",
+                "availableLanguage": "en"
+            },{
+                "@type": "ContactPoint",
+                "telephone": "3169936093",
+                "contactType": "sales",
+                "areaServed": "US",
+                "availableLanguage": "en"
+            }],
+            "sameAs": "https://github.com/studiocedar"
+        }
+    </script>
+    -->
+  </body>
+</html>
