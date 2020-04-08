@@ -11,32 +11,22 @@
     <link rel="stylesheet" href="https://use.typekit.net/sdp3aaq.css">
     <style>
         :root {
-            --color-dark: #0E1215;
-            --color-light: #F8F3EB;
-            
-            --color-yellow: #FFBE20;
-            --color-orange: #FE682C;
-            --color-red: #F62D38;
-            --color-pink: #CF2566;
-            --color-purple: #710A65;
+            --color-dark: #fff;
+            --color-light: #000;
             
             --max-width: 100em;
             
-            --font-heading: rhode-wide, sans-serif;
-            --font-body: poppins, sans-serif;
-            --font-mono: t26-carbon, monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-            --font-large: 2em;
-            --font-normalish: 1.375em;
+            --font-medium: 1.375em;
+            --font-medium-line-height: 1.4;
             --font-normal: 1em;
             --font-small: 0.875em;
         }
-        @media ( min-width: 48em ) {
+        @media ( min-width: 50em ) {
             :root {
-                --font-large: 3.5em;
-                --font-normalish: 1.625em;
-                --font-normal: 1.25em;
-                --font-small: 1em;
+                --grid-template: auto / repeat(12, 1fr);
+                --grid-gap: 0 0;
             }
         }
         ::selection {
@@ -52,14 +42,14 @@
             box-sizing: inherit;
         }
         body {
-            font-family: var(--font-body);
+            font-family: var(--font-sans);
             font-size: 100%;
             background-color: var(--color-dark);
             color: var(--color-light);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             font-feature-settings: "kern", "liga", "clig", "ss05", "ss07";
-            padding: 0;
+            padding: 1.5em 1.5em 3em;
             margin: 0;
         }
         a {
@@ -69,297 +59,160 @@
             text-decoration: underline;
         }
         p {
-            margin: 1.5em 0;
+            margin: 0 0 1.5em;
+            font-size: var(--font-normal);
         }
         
-        .canvas {
-            position: relative;
-            z-index: 1;
-            padding: 1.75em 1.5em 7em;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .canvas::after {
-                content: '';
-                position: absolute;
-                z-index: 10;
-                bottom: 0;
-                left: 50%;
-                width: 100vw;
-                margin-left: -50vw;
-                height: 4em;
-                background-image: linear-gradient(to top, var(--color-light), var(--color-light) 37%, transparent 37%, transparent 41.6%, var(--color-light) 41.6%, var(--color-light) 59.6%, transparent 59.6%, transparent 68.6%, var(--color-light) 68.6%, var(--color-light) 77.6%, transparent 77.6%, transparent 95.6%, var(--color-light) 95.6%, var(--color-light) 100%);
-                background-image: linear-gradient(to top, var(--color-yellow), var(--color-yellow) 37%, transparent 37%, transparent 41.6%, var(--color-orange) 41.6%, var(--color-orange) 59.6%, transparent 59.6%, transparent 68.6%, var(--color-red) 68.6%, var(--color-red) 77.6%, transparent 77.6%, transparent 95.6%, var(--color-pink) 95.6%, var(--color-pink) 100%);
-            }
-        
-        .canvas__masthead {
-            position: fixed;
-            z-index: 10;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-right: 3em;
-            max-width: var(--max-width);
-            
-        }
-        .canvas__logo {
-            display: block;
-            width: 3.5em;
-        }
-        .canvas__logo svg path {
-            fill: var(--color-yellow);
-        }
-        .canvas__logo svg path:nth-child(2) {
-            fill: var(--color-pink);
-        }
-        .canvas__logo svg path:nth-child(3) {
-            fill: var(--color-orange);
-        }
-        .canvas__logo svg path:nth-child(4) {
-            fill: var(--color-red);
-        }
-        
-        .canvas__intro {
-            margin-top: 12em;
-        }
-        
-        h1,
-        h3 {
-            font-family: var(--font-mono);
+        header h1 {
+            font-size: var(--font-medium);
             font-weight: normal;
-            font-size: var(--font-normal);
-            line-height: 1;
-        }
-        h2 {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            line-height: 1.3;
             margin: 0;
         }
-        .canvas__title {
-            color: var(--color-dark);
+        
+        main > p {
+            font-size: var(--font-medium);
+            line-height: var(--font-medium-line-height);
+            margin: 3em 0;
+        }
+        
+        .work {
+            border-top
+        }
+        .work h3 {
+            font-size: var(--font-normal);
+            font-weight: normal;
+        }
+        
+        .work__item h2 {
+            font-size: var(--font-medium);
+            font-weight: normal;
             margin: 0;
         }
-        .canvas__intro h2 {
-            font-size: var(--font-large);
-        }
-        .canvas__intro p {
-            font-size: var(--font-normal);
-            max-width: 36em;
-        }
-        
-        .canvas__feed {
-            position: relative;
-            z-index: 1;
-        }
-        .canvas__feed::before {
-            content: '';
-            position: relative;
-            display: block;
-            margin: 4em 0;
-            height: 4.76em;
-            border: 1px solid var(--color-light);
-            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-light) 1.5em, var(--color-light) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-light) 1.5em, var(--color-light) calc(1.5em + 1px));
-        }
-        .canvas__feed h3 {
-            margin-top: 0;
-        }
-        .canvas__feed h3::before {
-            content: '> ';
-            position: absolute;
-            transform: translate3d(-160%,-0.1em,0);
-        }
-        
-        .canvas__feed__item a {
+        .work__item h2 a {
             text-decoration: none;
         }
-        .canvas__feed__item h2 {
-            font-size: var(--font-normalish);
-        }
-        .canvas__feed__item ul {
+        
+        footer {
+            padding-top: 3em;
             display: flex;
-            list-style: none;
-            margin: 1em 0;
-            padding: 0;
+            justify-content: space-between;
+            align-items: baseline;
         }
-        .canvas__feed__item li {
-            font-family: var(--font-mono);
+        footer a {
+            text-decoration: none;
+        }
+        footer a:hover,
+        footer a:active {
+            text-decoration: underline;
+        }
+        .copyright {
             font-size: var(--font-small);
-            font-weight: 700;
-            line-height: 1;
         }
-        .canvas__feed__item li:not(:last-of-type)::after {
-            content: '+';
-            margin: 0 0.5em;
-        }
-        .canvas__feed__item li span {
-            display: inline-block;
+        
+        .status {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            font-size: 0.75em;
             background-color: var(--color-light);
             color: var(--color-dark);
-            padding: 0 0.125em 0.1em;
-        }
-        .canvas__feed__item p a {
-            text-decoration: underline;
-        }
-        .canvas__feed__item > a {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            font-size: var(--font-normal);
-        }
-        .canvas__feed__item > a::after {
-            content: ' \02192';
-        }
-        .canvas__feed__item > a:hover {
-            text-decoration: underline;
+            padding: 0.5em 0.75em;
+            text-align: center;
         }
         
-        .canvas__contact {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            line-height: 1;
-            margin-top: 4em;
-        }
-        .canvas__contact a {
-            text-decoration: none;
-            font-size: var(--font-normal);
+        @media ( max-width: 50em ) {
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
         }
         
-        @media ( max-width: 48em ) {
-            .canvas__contact
-        }
-        
-        
-        @media ( min-width: 48em ) {
+        @media ( min-width: 50em ) {
             body {
+                padding: 2em;
+                display: flex;
+                flex-direction: column;
                 min-height: 100vh;
             }
+            header {
+                display: grid;
+                grid-template: var(--grid-template);
+                grid-gap: var(--grid-gap);
+                align-items: baseline;
+            }
+            header h1 {
+                grid-column: 1 / span 2;
+            }
+            header nav {
+                grid-column: 7;
+                opacity: 0.5;
+            }
+            main {
+                display: grid;
+                grid-template: var(--grid-template);
+                grid-gap: var(--grid-gap);
+            }
+            main > p {
+                grid-column: 7 / span 4;
+                margin: 8em 0 3em;
+            }
+            .work {
+                display: grid;
+                grid-template: var(--grid-template);
+                grid-gap: var(--grid-gap);
+                grid-row: 2;
+                grid-column: 1 / span 12;
+            }
+            .work > h3 {
+                grid-column: 7 / span 5;
+            }
+            .work__item {
+                grid-gap: var(--grid-gap);
+                grid-column: 1 / span 12;
+                grid-column: 7 / span 4;
+            }
+            footer {
+                margin-top: auto;
+                display: grid;
+                grid-template: var(--grid-template);
+                grid-gap: var(--grid-gap);
+            }
+            footer a:first-of-type {
+                grid-column: 1;
+            }
+            .copyright {
+                grid-column: 7;
+            }
+            .status {
+                left: auto;
+            }
         }
         
-        @media ( min-width: 48em ) {
-            .canvas {
-                padding-top: 3.5em;
-                padding-right: 3em;
-                padding-left: 3em;
-                min-height: 100vh;
-            }
-            .canvas__masthead {
-              padding-right: 6em;
-            }
-            .canvas__logo {
-                width: 5em;
-            }
-            .canvas__intro,
-            .canvas__feed,
-            .canvas__contact {
-                padding-left: 5em;
-            }
-            .canvas__intro {
-                margin-top: 12em;
-            }
-            .canvas__feed {
-                padding-right: calc(40% + 4em);
-                margin-top: 2em;
-                padding-top: 4em;
-                padding-bottom: 4em;
-            }
-            .canvas__feed::before {
-                width: 40%;
-                position: absolute;
-                top: 4.625em;
-                right: 0;
-                bottom: 4em;
-                height: auto;
-                margin: 0;
-            }
-        }
         
-        /*
-        
-        .canvas::after {
-            content: '';
-            position: absolute;
-            display: block;
-            top: 2em;
-            right: 2em;
-            bottom: 2em;
-            width: 7.8em;
-            border: 1px solid var(--color-dark);
-            background-image: repeating-linear-gradient(to bottom, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px)), repeating-linear-gradient(to right, transparent, transparent 1.5em, var(--color-dark) 1.5em, var(--color-dark) calc(1.5em + 1px));
-        }
-        */
     </style>
 </head>
 <body>
-    <main class="canvas">
-        <header class="canvas__masthead">
-            <span class="canvas__logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 313.82 250"><path d="M176.94,79.43A17.16,17.16,0,0,1,193.12,90.9h52.17A125.06,125.06,0,0,0,125,0h0A125.06,125.06,0,0,0,4.71,90.9H160.77A17.14,17.14,0,0,1,176.94,79.43Z" /><path d="M125,250a124.54,124.54,0,0,0,52.13-11.36H72.87A124.54,124.54,0,0,0,125,250Z" /><path d="M193.13,102.26a17.14,17.14,0,0,1-32.37,0H2.07a126,126,0,0,0,0,45.44H247.94a126,126,0,0,0,0-45.44Z" /><path d="M20.24,193.2H229.76a124.45,124.45,0,0,0,11.71-22.72H8.53A124.45,124.45,0,0,0,20.24,193.2Z" /><path d="M296.65,79.43a17.16,17.16,0,1,0,17.17,17.16A17.16,17.16,0,0,0,296.65,79.43Z" /></svg>
-            </span>
-            <h1>Stephan Foxwell</h1>
-        </header>
-        <div class="canvas__intro">
-            <h2>Engagingly simple sites.</h2>
-            <p>Howdy. I&rsquo;m a developer and designer. I build sites that are easy to use for both their visitors and their admin, mostly working with WordPress and (more recently) Gatsby.</p>
-        </div>
-        <div class="canvas__feed">
+    <header role="banner">
+        <h1>Stephan Foxwell</h1>
+        <nav role="navigation"><span>Index</span></nav>
+    </header>
+    <main>
+        <p>I&rsquo;m a web developer &amp; designer.<br /> I create sites that are engagingly simple, yet as distinguished or curious as you are.</p>
+        <div class="work">
             <h3>Most Recent Work</h3>
-            <article class="canvas__feed__item">
+            <div class="work__item">
                 <h2><a href="https://www.theoutlawoceanmusic.com" title="The Outlaw Ocean Music Project" target="_blank" rel="nofollow noreferrer">The Outlaw Ocean Music Project</a></h2>
-                <ul>
-                    <li><span>Gatsby</span></li>
-                    <li><span>Directus CMS</span></li>
-                    <li><span>Netlify</span></li>
-                </ul>
-                <p>In collaboration with Ian Urbina, writer for the New York Times and The Atlantic, I developed a site to showcase music inspired by his NYT bestseller, The Outlaw Ocean. A headless Directus backend and a Gatsby front-end deliver both a straightforward CMS experience for Ian's team and a modern, blazing fast front-end for visitors.</p>
+                <p>In collaboration with Ian Urbina, writer for the New York Times and The Atlantic, I developed a site to showcase music inspired by his NYT bestseller, The Outlaw Ocean. A headless Directus CMS and a Gatsby front-end deliver both a straightforward admin experience for Ian's team and a modern, blazing fast front-end for visitors.</p>
                 <a href="https://www.theoutlawoceanmusic.com" title="The Outlaw Ocean Music Project" target="_blank" rel="nofollow noreferrer">Visit the site</a>
-            </article>
-        </div>
-        <div class="canvas__contact">
-            <a href="mailto:post@sfoxwell.com">Email</a>
-            *
-            <a href="https://github.com/sfoxwell" target="_blank" rel="noopener nofollow">GitHub</a>
-            *
-            <a href="https://dribbble.com/sfoxwell" target="_blank" rel="noopener nofollow">Dribbble</a>
+            </div>
         </div>
     </main>
-    <!--
-    <script>
-        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-        ga('create','UA-104371006-1','auto');ga('send','pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Studio Cedar",
-            "alternateName": "Cedar",
-            "url": "https://www.studiocedar.com",
-            "logo": "",
-            "contactPoint": [{
-                "@type": "ContactPoint",
-                "telephone": "3169936093",
-                "contactType": "customer service",
-                "areaServed": "US",
-                "availableLanguage": "en"
-            },{
-                "@type": "ContactPoint",
-                "telephone": "3169936093",
-                "contactType": "technical support",
-                "areaServed": "US",
-                "availableLanguage": "en"
-            },{
-                "@type": "ContactPoint",
-                "telephone": "3169936093",
-                "contactType": "sales",
-                "areaServed": "US",
-                "availableLanguage": "en"
-            }],
-            "sameAs": "https://github.com/studiocedar"
-        }
-    </script>
-    -->
+    <footer role="contentinfo">
+        <a href="mailto:post@sfoxwell.com">Email</a>
+        <div class="copyright">&copy; 2020</div>
+    </footer>
+    <div class="status">This site is in active development</div>
   </body>
 </html>
